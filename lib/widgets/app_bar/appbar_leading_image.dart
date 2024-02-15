@@ -8,11 +8,14 @@ class AppbarLeadingImage extends StatelessWidget {
     this.imagePath,
     this.margin,
     this.onTap,
+    this.color
   }) : super(
           key: key,
         );
 
   String? imagePath;
+
+  Color? color;
 
   EdgeInsetsGeometry? margin;
 
@@ -31,6 +34,7 @@ class AppbarLeadingImage extends StatelessWidget {
           height: 33.v,
           width: 122.h,
           fit: BoxFit.contain,
+          color: color,
         ),
       ),
     );

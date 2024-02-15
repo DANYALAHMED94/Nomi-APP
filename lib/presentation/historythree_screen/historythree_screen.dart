@@ -6,6 +6,8 @@ import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
 import 'package:nomi/widgets/custom_bottom_bar.dart';
 import 'package:nomi/widgets/custom_search_view.dart';
 
+import '../../widgets/custom_text_form_field.dart';
+
 class HistorythreeScreen extends StatelessWidget {
   HistorythreeScreen({Key? key})
       : super(
@@ -38,82 +40,134 @@ class HistorythreeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Container(
-                        width: 332.h,
-                        margin: EdgeInsets.only(
-                          left: 10.h,
-                          right: 4.h,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 2.v),
-                              child: Text(
-                                "Records",
-                                style: theme.textTheme.headlineSmall,
-                              ),
-                            ),
-                            Spacer(),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgMegaphone,
-                              height: 19.v,
-                              width: 31.h,
-                              margin: EdgeInsets.only(
-                                top: 7.v,
-                                bottom: 6.v,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 12.h),
-                              child: SizedBox(
-                                height: 32.v,
-                                child: VerticalDivider(
-                                  width: 1.h,
-                                  thickness: 1.v,
-                                  indent: 3.h,
-                                  endIndent: 4.h,
-                                ),
-                              ),
-                            ),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgPhSquaresFourBold,
-                              height: 31.adaptSize,
-                              width: 31.adaptSize,
-                              margin: EdgeInsets.only(left: 6.h),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 6.h),
-                              child: SizedBox(
-                                height: 32.v,
-                                child: VerticalDivider(
-                                  width: 1.h,
-                                  thickness: 1.v,
-                                  indent: 2.h,
-                                  endIndent: 5.h,
-                                ),
-                              ),
-                            ),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgVectorBlack90001,
-                              height: 21.v,
-                              width: 28.h,
-                              margin: EdgeInsets.only(
-                                left: 8.h,
-                                top: 6.v,
-                                bottom: 5.v,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+
+                      _buildRecordsSection(context),
+                      SizedBox(height: 12.v),
                       Padding(
-                        padding: EdgeInsets.only(right: 4.h),
-                        child: CustomSearchView(
+                        padding: EdgeInsets.only(
+                          top: 3.v,
+                          bottom: 2.v,
+                        ),
+                        child: CustomTextFormField(
                           controller: searchController,
-                          hintText: "Search",
+                          hintText: "Search...",
+                          hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
+                          textInputAction: TextInputAction.done,
+
+                          prefix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgSearch,
+                                height: 15.adaptSize,
+                                width: 15.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          prefixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
+                          ),
+                          suffix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgMicrophone3421,
+                                height: 20.adaptSize,
+                                width: 20.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          suffixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                         ),
                       ),
+
+                      // Container(
+                      //   width: 332.h,
+                      //   margin: EdgeInsets.only(
+                      //     left: 10.h,
+                      //     right: 4.h,
+                      //   ),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: [
+                      //       Padding(
+                      //         padding: EdgeInsets.only(bottom: 2.v),
+                      //         child: Text(
+                      //           "Records",
+                      //           style: theme.textTheme.headlineSmall,
+                      //         ),
+                      //       ),
+                      //       Spacer(),
+                      //       CustomImageView(
+                      //         imagePath: ImageConstant.imgMegaphone,
+                      //         height: 19.v,
+                      //         width: 31.h,
+                      //         margin: EdgeInsets.only(
+                      //           top: 7.v,
+                      //           bottom: 6.v,
+                      //         ),
+                      //       ),
+                      //       Padding(
+                      //         padding: EdgeInsets.only(left: 12.h),
+                      //         child: SizedBox(
+                      //           height: 32.v,
+                      //           child: VerticalDivider(
+                      //             width: 1.h,
+                      //             thickness: 1.v,
+                      //             indent: 3.h,
+                      //             endIndent: 4.h,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       CustomImageView(
+                      //         imagePath: ImageConstant.imgPhSquaresFourBold,
+                      //         height: 31.adaptSize,
+                      //         width: 31.adaptSize,
+                      //         margin: EdgeInsets.only(left: 6.h),
+                      //       ),
+                      //       Padding(
+                      //         padding: EdgeInsets.only(left: 6.h),
+                      //         child: SizedBox(
+                      //           height: 32.v,
+                      //           child: VerticalDivider(
+                      //             width: 1.h,
+                      //             thickness: 1.v,
+                      //             indent: 2.h,
+                      //             endIndent: 5.h,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       CustomImageView(
+                      //         imagePath: ImageConstant.imgVectorBlack90001,
+                      //         height: 21.v,
+                      //         width: 28.h,
+                      //         margin: EdgeInsets.only(
+                      //           left: 8.h,
+                      //           top: 6.v,
+                      //           bottom: 5.v,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(right: 4.h),
+                      //   child: CustomSearchView(
+                      //     controller: searchController,
+                      //     hintText: "Search",
+                      //   ),
+                      // ),
                       SizedBox(height: 2.v),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -128,49 +182,24 @@ class HistorythreeScreen extends StatelessWidget {
                       SizedBox(height: 7.v),
                       Divider(
                         endIndent: 4.h,
+                        thickness: 1,
                       ),
                       SizedBox(height: 15.v),
                       _buildJanDayOne(context),
                       SizedBox(height: 18.v),
                       Divider(
                         endIndent: 4.h,
-                      ),
-                      Spacer(),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgPlusGreenA200,
-                        height: 80.v,
-                        width: 75.h,
+                        thickness: 1,
                       ),
                     ],
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: 13.h,
-                  top: 16.v,
-                  bottom: 66.v,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 3.h,
-                  vertical: 1.v,
-                ),
-                decoration: AppDecoration.fillGray,
-                child: Container(
-                  height: 25.v,
-                  width: 8.h,
-                  decoration: BoxDecoration(
-                    color: appTheme.gray40003,
-                    borderRadius: BorderRadius.circular(
-                      4.h,
-                    ),
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        // bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -191,6 +220,76 @@ class HistorythreeScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildRecordsSection(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: 353.h,
+        margin: EdgeInsets.only(
+          left: 10.h,
+          right: 13.h,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Records",
+              style: theme.textTheme.headlineSmall,
+            ),
+            Spacer(),
+            CustomImageView(
+              imagePath: ImageConstant.imgMegaphoneGray90001,
+              height: 19.v,
+              width: 31.h,
+              color: Colors.black,
+              margin: EdgeInsets.symmetric(vertical: 6.v),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12.h),
+              child: SizedBox(
+                height: 29.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 4.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgPhSquaresFourBold,
+              height: 31.adaptSize,
+              width: 31.adaptSize,
+              color: Colors.black,
+              margin: EdgeInsets.only(left: 6.h),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 6.h),
+              child: SizedBox(
+                height: 30.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 5.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgThumbsUpSecondarycontainer,
+              height: 21.v,
+              width: 28.h,
+              color: Color(0xff55F4BB),
+              margin: EdgeInsets.only(
+                left: 8.h,
+                top: 5.v,
+                bottom: 5.v,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

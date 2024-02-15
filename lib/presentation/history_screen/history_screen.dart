@@ -7,6 +7,8 @@ import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
 import 'package:nomi/widgets/custom_bottom_bar.dart';
 import 'package:nomi/widgets/custom_search_view.dart';
 
+import '../../widgets/custom_text_form_field.dart';
+
 class HistoryScreen extends StatelessWidget {
   HistoryScreen({Key? key})
       : super(
@@ -24,38 +26,17 @@ class HistoryScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: _buildAppBar(context),
         body: Container(
-          width: double.maxFinite,
+          width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.symmetric(horizontal: 13.h),
           child: Column(
             children: [
               SizedBox(height: 16.v),
               SizedBox(
-                height: 674.v,
-                width: 388.h,
+                height: MediaQuery.of(context).size.height*0.8,
+                width: MediaQuery.of(context).size.width,
                 child: Stack(
                   alignment: Alignment.topLeft,
                   children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        margin: EdgeInsets.only(left: 371.h),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 3.h,
-                          vertical: 1.v,
-                        ),
-                        decoration: AppDecoration.fillGray,
-                        child: Container(
-                          height: 25.v,
-                          width: 8.h,
-                          decoration: BoxDecoration(
-                            color: appTheme.gray40003,
-                            borderRadius: BorderRadius.circular(
-                              4.h,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                     Align(
                       alignment: Alignment.topLeft,
                       child: Padding(
@@ -68,16 +49,54 @@ class HistoryScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _buildRecentOrders(context),
+                            _buildRecordsSection(context),
                             SizedBox(height: 12.v),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: 4.h,
-                                right: 16.h,
+                                top: 3.v,
+                                bottom: 2.v,
                               ),
-                              child: CustomSearchView(
+                              child: CustomTextFormField(
                                 controller: searchController,
-                                hintText: "Search",
+                                hintText: "Search...",
+                                hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
+                                textInputAction: TextInputAction.done,
+
+                                prefix: GestureDetector(
+                                  onTap: (){
+
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
+                                    child: CustomImageView(
+                                      imagePath: ImageConstant.imgSearch,
+                                      height: 15.adaptSize,
+                                      width: 15.adaptSize,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                prefixConstraints: BoxConstraints(
+                                  maxHeight: 47.v,
+                                ),
+                                suffix: GestureDetector(
+                                  onTap: (){
+
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
+                                    child: CustomImageView(
+                                      imagePath: ImageConstant.imgMicrophone3421,
+                                      height: 20.adaptSize,
+                                      width: 20.adaptSize,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                suffixConstraints: BoxConstraints(
+                                  maxHeight: 47.v,
+                                ),
+                                contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                               ),
                             ),
                             SizedBox(height: 17.v),
@@ -100,24 +119,19 @@ class HistoryScreen extends StatelessWidget {
                                 style: CustomTextStyles.titleMediumGreenA200,
                               ),
                             ),
+                            SizedBox(height: 2.v),
+                            _buildClientTestimonials(context)
                           ],
                         ),
                       ),
                     ),
-                    _buildClientTestimonials(context),
                   ],
                 ),
-              ),
-              SizedBox(height: 32.v),
-              CustomImageView(
-                imagePath: ImageConstant.imgPlusGreenA200,
-                height: 80.v,
-                width: 75.h,
               ),
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        // bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -126,6 +140,7 @@ class HistoryScreen extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       centerTitle: true,
+      height: 70,
       title: AppbarTitleImage(
         imagePath: ImageConstant.imgBradgoodLogo,
       ),
@@ -138,6 +153,93 @@ class HistoryScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+  // PreferredSizeWidget _buildAppBar(BuildContext context) {
+  //   return CustomAppBar(
+  //     centerTitle: true,
+  //     title: AppbarTitleImage(
+  //       imagePath: ImageConstant.imgBradgoodLogo,
+  //     ),
+  //     actions: [
+  //       AppbarTrailingIconbuttonOne(
+  //         imagePath: ImageConstant.imgScreenshot2023,
+  //         margin: EdgeInsets.symmetric(
+  //           horizontal: 13.h,
+  //           vertical: 6.v,
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+
+  Widget _buildRecordsSection(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.only(
+          left: 10.h,
+          right: 13.h,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Records",
+              style: theme.textTheme.headlineSmall,
+            ),
+            Spacer(),
+            CustomImageView(
+              imagePath: ImageConstant.imgMegaphoneGray90001,
+              height: 19.v,
+              width: 31.h,
+              color: Colors.black,
+              margin: EdgeInsets.symmetric(vertical: 6.v),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12.h),
+              child: SizedBox(
+                height: 29.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 4.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgPhSquaresFourBold,
+              height: 31.adaptSize,
+              width: 31.adaptSize,
+              color: Colors.black,
+              margin: EdgeInsets.only(left: 6.h),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 6.h),
+              child: SizedBox(
+                height: 30.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 5.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgThumbsUpSecondarycontainer,
+              height: 21.v,
+              width: 28.h,
+              color: Color(0xff55F4BB),
+              margin: EdgeInsets.only(
+                left: 8.h,
+                top: 5.v,
+                bottom: 5.v,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -210,15 +312,20 @@ class HistoryScreen extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgC1,
+
+          Container(
             height: 342.v,
-            width: 346.h,
-            radius: BorderRadius.circular(
-              20.h,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(ImageConstant.imgC1),
+                fit: BoxFit.fill,
+                scale: 3
+              ),
+              borderRadius: BorderRadius.circular(20)
             ),
-            alignment: Alignment.center,
           ),
+
           Align(
             alignment: Alignment.center,
             child: Padding(
@@ -238,18 +345,30 @@ class HistoryScreen extends StatelessWidget {
                         imagePath: ImageConstant.imgArrow1,
                         height: 3.v,
                         width: 20.h,
+                        color: Colors.white,
                       ),
                       CustomImageView(
                         imagePath: ImageConstant.imgArrow2,
                         height: 3.v,
                         width: 19.h,
+                        color: Colors.white,
                       ),
                     ],
                   ),
                   SizedBox(height: 160.v),
                   Text(
                     "Jan 1, 2024 ",
-                    style: CustomTextStyles.titleSmallGreenA200,
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black,
+                            blurRadius: 5,
+                          )
+                        ]
+                    ),
                   ),
                 ],
               ),
@@ -311,6 +430,7 @@ class HistoryScreen extends StatelessWidget {
           image: DecorationImage(
             image: fs.Svg(
               ImageConstant.imgGroup54,
+              color: Colors.red
             ),
             fit: BoxFit.cover,
           ),
@@ -319,7 +439,6 @@ class HistoryScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 2.v),
             Container(
               width: 330.h,
               margin: EdgeInsets.only(right: 9.h),

@@ -7,21 +7,30 @@ import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
 import 'package:nomi/widgets/custom_bottom_bar.dart';
 import 'package:nomi/widgets/custom_search_view.dart';
 
-class HistoryOneScreen extends StatelessWidget {
+import '../../widgets/custom_text_form_field.dart';
+
+class HistoryOneScreen extends StatefulWidget {
   HistoryOneScreen({Key? key})
       : super(
           key: key,
         );
 
+  @override
+  State<HistoryOneScreen> createState() => _HistoryOneScreenState();
+}
+
+class _HistoryOneScreenState extends State<HistoryOneScreen> {
   TextEditingController searchController = TextEditingController();
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+
+  double sliderValue=20;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         appBar: _buildAppBar(context),
         body: Container(
           width: double.maxFinite,
@@ -38,21 +47,55 @@ class HistoryOneScreen extends StatelessWidget {
                     children: [
                       _buildRecordsSection(context),
                       SizedBox(height: 12.v),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: 14.h,
-                            right: 20.h,
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: 3.v,
+                          bottom: 2.v,
+                        ),
+                        child: CustomTextFormField(
+                          controller: searchController,
+                          hintText: "Search...",
+                          hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
+                          textInputAction: TextInputAction.done,
+
+                          prefix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgSearch,
+                                height: 15.adaptSize,
+                                width: 15.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
-                          child: CustomSearchView(
-                            controller: searchController,
-                            hintText: "Search",
-                            alignment: Alignment.center,
+                          prefixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
                           ),
+                          suffix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgMicrophone3421,
+                                height: 20.adaptSize,
+                                width: 20.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          suffixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                         ),
                       ),
-                      SizedBox(height: 45.v),
+                      // SizedBox(height: 45.v),
                       Padding(
                         padding: EdgeInsets.only(left: 5.h),
                         child: Text(
@@ -90,43 +133,36 @@ class HistoryOneScreen extends StatelessWidget {
                           style: CustomTextStyles.titleMediumGreenA200,
                         ),
                       ),
-                      SizedBox(height: 88.v),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgPlusGreenA200,
-                        height: 80.v,
-                        width: 75.h,
-                        alignment: Alignment.center,
-                      ),
                     ],
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: 4.h,
-                  top: 16.v,
-                  bottom: 66.v,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 4.h,
-                  vertical: 316.v,
-                ),
-                decoration: AppDecoration.fillGray,
-                child: Container(
-                  height: 25.v,
-                  width: 8.h,
-                  decoration: BoxDecoration(
-                    color: appTheme.gray40003,
-                    borderRadius: BorderRadius.circular(
-                      4.h,
-                    ),
-                  ),
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(
+              //     left: 4.h,
+              //     top: 16.v,
+              //     bottom: 66.v,
+              //   ),
+              //   padding: EdgeInsets.symmetric(
+              //     horizontal: 4.h,
+              //     vertical: 316.v,
+              //   ),
+              //   decoration: AppDecoration.fillGray,
+              //   child: Container(
+              //     height: 25.v,
+              //     width: 8.h,
+              //     decoration: BoxDecoration(
+              //       color: appTheme.gray40003,
+              //       borderRadius: BorderRadius.circular(
+              //         4.h,
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        // bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -135,6 +171,7 @@ class HistoryOneScreen extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       centerTitle: true,
+      height: 70,
       title: AppbarTitleImage(
         imagePath: ImageConstant.imgBradgoodLogo,
       ),
@@ -172,6 +209,7 @@ class HistoryOneScreen extends StatelessWidget {
               imagePath: ImageConstant.imgMegaphoneGray90001,
               height: 19.v,
               width: 31.h,
+              color: Colors.black,
               margin: EdgeInsets.symmetric(vertical: 6.v),
             ),
             Padding(
@@ -189,6 +227,7 @@ class HistoryOneScreen extends StatelessWidget {
               imagePath: ImageConstant.imgPhSquaresFourBold,
               height: 31.adaptSize,
               width: 31.adaptSize,
+              color: Colors.black,
               margin: EdgeInsets.only(left: 6.h),
             ),
             Padding(
@@ -206,6 +245,7 @@ class HistoryOneScreen extends StatelessWidget {
               imagePath: ImageConstant.imgThumbsUpSecondarycontainer,
               height: 21.v,
               width: 28.h,
+              color: Color(0xff55F4BB),
               margin: EdgeInsets.only(
                 left: 8.h,
                 top: 5.v,
@@ -277,6 +317,7 @@ class HistoryOneScreen extends StatelessWidget {
                     imagePath: ImageConstant.imgArrow1,
                     height: 3.v,
                     width: 20.h,
+                    color: Colors.black,
                   ),
                   CustomImageView(
                     imagePath: ImageConstant.imgArrow2,
@@ -337,80 +378,62 @@ class HistoryOneScreen extends StatelessWidget {
         borderRadius: BorderRadiusStyle.roundedBorder12,
       ),
       child: Container(
-        height: 143.v,
+        height: 150.v,
         width: 358.h,
         decoration: AppDecoration.fillPrimary.copyWith(
           borderRadius: BorderRadiusStyle.roundedBorder12,
         ),
-        child: Stack(
-          alignment: Alignment.center,
+        child: Column(
+          // alignment: Alignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 30.h,
-                  right: 71.h,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgScreenshot2023,
-                      height: 43.v,
-                      width: 49.h,
-                      alignment: Alignment.centerRight,
-                      margin: EdgeInsets.only(right: 79.h),
-                    ),
-                    SizedBox(height: 40.v),
-                    SizedBox(
-                      width: 257.h,
-                      child: Text(
-                        "Feeling really good about where\n business is going",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Align(
+            CustomImageView(
+              imagePath: ImageConstant.imgScreenshot2023,
+              height: 43.v,
+              width: 49.h,
               alignment: Alignment.center,
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 30.h,
-                  vertical: 4.v,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusStyle.roundedBorder12,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgScreenshot2023,
-                      height: 43.v,
-                      width: 49.h,
-                      alignment: Alignment.center,
-                    ),
-                    SizedBox(height: 40.v),
-                    Container(
-                      width: 257.h,
-                      margin: EdgeInsets.only(right: 41.h),
-                      child: Text(
-                        "Feeling really good about where\n business is going",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            Slider(
+              value: sliderValue,
+              min: 0,
+              thumbColor: Colors.white,
+              max: 100,
+              onChanged: (value) {
+                setState(() {
+                  sliderValue = value;
+                });
+              },),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(
+                horizontal: 10
+              ),
+              child: Text(
+                "Feeling really good about where business is going",
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.bodyLarge,
               ),
             ),
+            // Align(
+            //   alignment: Alignment.center,
+            //   child: Container(
+            //     padding: EdgeInsets.symmetric(
+            //       horizontal: 30.h,
+            //       vertical: 4.v,
+            //     ),
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadiusStyle.roundedBorder12,
+            //     ),
+            //     child: Column(
+            //       mainAxisSize: MainAxisSize.min,
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

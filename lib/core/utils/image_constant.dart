@@ -61,6 +61,7 @@ class ImageConstant {
 
   // HistoryThree images
   static String imgMegaphone = '$imagePath/img_megaphone.svg';
+  static String imgSearch = '$imagePath/search.svg';
 
   // HistoryTwo images
   static String imgPhSquaresFourBoldGreenA200 =
@@ -194,7 +195,7 @@ class ImageConstant {
 
   static String imgMenu = '$imagePath/img_menu.svg';
 
-  static String imgC1 = '$imagePath/img_c1.png';
+  static String imgC1 = '$imagePath/picnic.png';
 
   static String imgMegaphoneGray90001 =
       '$imagePath/img_megaphone_gray_900_01.svg';

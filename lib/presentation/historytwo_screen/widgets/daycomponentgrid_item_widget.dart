@@ -3,7 +3,8 @@ import 'package:nomi/core/app_export.dart';
 
 // ignore: must_be_immutable
 class DaycomponentgridItemWidget extends StatelessWidget {
-  const DaycomponentgridItemWidget({Key? key})
+  int index;
+  DaycomponentgridItemWidget({Key? key, required this.index})
       : super(
           key: key,
         );
@@ -11,7 +12,7 @@ class DaycomponentgridItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 115.v,
+      height: 125.v,
       width: 119.h,
       child: Stack(
         alignment: Alignment.center,
@@ -32,9 +33,9 @@ class DaycomponentgridItemWidget extends StatelessWidget {
                 horizontal: 22.h,
                 vertical: 5.v,
               ),
-              decoration: AppDecoration.fillBlueGray.copyWith(
+              decoration: index==0?AppDecoration.fillBlueGray.copyWith(
                 borderRadius: BorderRadiusStyle.roundedBorder20,
-              ),
+              ):BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +48,11 @@ class DaycomponentgridItemWidget extends StatelessWidget {
                   SizedBox(height: 67.v),
                   Text(
                     "Jan 1, 2024 ",
-                    style: CustomTextStyles.titleSmallGreenA200,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: Colors.white
+                    ),
                   ),
                 ],
               ),

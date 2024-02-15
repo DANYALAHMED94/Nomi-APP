@@ -6,16 +6,25 @@ import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
 import 'package:nomi/widgets/custom_elevated_button.dart';
 import 'package:nomi/widgets/custom_icon_button.dart';
 
-class MoodoneScreen extends StatelessWidget {
-  const MoodoneScreen({Key? key})
+class MoodoneScreen extends StatefulWidget {
+  MoodoneScreen({Key? key})
       : super(
           key: key,
         );
 
   @override
+  State<MoodoneScreen> createState() => _MoodoneScreenState();
+}
+
+class _MoodoneScreenState extends State<MoodoneScreen> {
+
+  double sliderValue = 20;
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SizedBox(
           width: 414.h,
           child: Column(
@@ -40,13 +49,17 @@ class MoodoneScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        height: 5.v,
-                        width: 316.h,
-                        margin: EdgeInsets.only(top: 94.v),
-                      ),
+                    Slider(
+                        value: sliderValue,
+                        min: 0,
+                        max: 100,
+                        thumbColor: Colors.white,
+                        onChanged: (value) {
+                          sliderValue = value;
+                          setState(() {
+
+                          });
+                        },
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 87.v),

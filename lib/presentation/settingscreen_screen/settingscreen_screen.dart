@@ -24,7 +24,7 @@ class SettingscreenScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 29.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(height: 2.v),
               Text(
@@ -55,6 +55,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgIconamoonProfileLight,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -76,6 +77,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgMaterialSymbolGray800,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -103,6 +105,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgIcOutlineLock,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -150,6 +153,7 @@ class SettingscreenScreen extends StatelessWidget {
                                 ImageConstant.imgMaterialSymbolGray80030x30,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -171,6 +175,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgMdiQuestionMa,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -192,6 +197,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgTablerCircleLetterI,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -241,6 +247,7 @@ class SettingscreenScreen extends StatelessWidget {
                               imagePath: ImageConstant.imgRiDeleteBin5Line,
                               height: 30.adaptSize,
                               width: 30.adaptSize,
+                              color: Colors.black,
                             ),
                           ),
                           Opacity(
@@ -253,7 +260,7 @@ class SettingscreenScreen extends StatelessWidget {
                               ),
                               child: Text(
                                 "Free up space",
-                                style: CustomTextStyles.titleMediumBlack90001,
+                                  style: theme.textTheme.titleMedium,
                               ),
                             ),
                           ),
@@ -269,6 +276,7 @@ class SettingscreenScreen extends StatelessWidget {
                                   ImageConstant.imgIcOutlineDataExploration,
                               height: 30.adaptSize,
                               width: 30.adaptSize,
+                              color: Colors.black,
                             ),
                           ),
                           Opacity(
@@ -281,7 +289,7 @@ class SettingscreenScreen extends StatelessWidget {
                               ),
                               child: Text(
                                 "Data Saver",
-                                style: CustomTextStyles.titleMediumBlack90001,
+                                style: theme.textTheme.titleMedium,
                               ),
                             ),
                           ),
@@ -320,6 +328,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgIcSharpOutlinedFlag,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -347,6 +356,7 @@ class SettingscreenScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgMdiLogout,
                             height: 30.adaptSize,
                             width: 30.adaptSize,
+                            color: Colors.black,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -368,15 +378,15 @@ class SettingscreenScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomAppBar(context),
-        floatingActionButton: CustomFloatingButton(
-          height: 80,
-          width: 82,
-          child: Icon(
-            Icons.add,
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        // bottomNavigationBar: _buildBottomAppBar(context),
+        // floatingActionButton: CustomFloatingButton(
+        //   height: 80,
+        //   width: 82,
+        //   child: Icon(
+        //     Icons.add,
+        //   ),
+        // ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
@@ -385,6 +395,7 @@ class SettingscreenScreen extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: 53.h,
+      height: 70,
       leading: AppbarLeadingImage(
         imagePath: ImageConstant.imgMaterialSymbol,
         margin: EdgeInsets.only(
@@ -395,8 +406,8 @@ class SettingscreenScreen extends StatelessWidget {
       ),
       title: AppbarTitle(
         text: "Settings",
-        margin: EdgeInsets.only(left: 85.h),
       ),
+      centerTitle: true,
     );
   }
 
@@ -419,6 +430,7 @@ class SettingscreenScreen extends StatelessWidget {
           imagePath: userImage,
           height: 30.adaptSize,
           width: 30.adaptSize,
+          color: Colors.black,
         ),
         Padding(
           padding: EdgeInsets.only(

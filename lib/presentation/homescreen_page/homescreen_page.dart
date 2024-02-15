@@ -1,7 +1,16 @@
 import 'package:nomi/presentation/chatselection_screen/chatselection_screen.dart';
 import 'package:nomi/presentation/currentgoals_screen/currentgoals_screen.dart';
+import 'package:nomi/presentation/editprofile_screen/editprofile_screen.dart';
+import 'package:nomi/presentation/history_one_screen/history_one_screen.dart';
+import 'package:nomi/presentation/history_screen/history_screen.dart';
+import 'package:nomi/presentation/historythree_screen/historythree_screen.dart';
+import 'package:nomi/presentation/historytwo_screen/historytwo_screen.dart';
+import 'package:nomi/presentation/moodone_screen/moodone_screen.dart';
+import 'package:nomi/presentation/myday_screen/myday_screen.dart';
+import 'package:nomi/presentation/mydayone_screen/mydayone_screen.dart';
 import 'package:nomi/presentation/newgoals_screen/newgoals_screen.dart';
 import 'package:nomi/presentation/quicknote_screen/quicknote_screen.dart';
+import 'package:nomi/presentation/settingscreen_screen/settingscreen_screen.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../homescreen_page/widgets/homescreengrid_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -208,7 +217,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ChatselectionScreen(),
+                      builder: (context) => MoodoneScreen(),
                     )
                 );
               }

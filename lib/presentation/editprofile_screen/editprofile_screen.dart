@@ -188,13 +188,18 @@ class EditprofileScreen extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: 55.h,
+      height: 70,
       leading: AppbarLeadingImage(
         imagePath: ImageConstant.imgMaterialSymbol,
+        onTap: (){
+          Navigator.pop(context);
+        },
         margin: EdgeInsets.only(
           left: 25.h,
           top: 13.v,
           bottom: 13.v,
         ),
+        color: Colors.black,
       ),
       centerTitle: true,
       title: AppbarSubtitleOne(

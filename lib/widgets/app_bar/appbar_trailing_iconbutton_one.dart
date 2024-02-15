@@ -9,11 +9,14 @@ class AppbarTrailingIconbuttonOne extends StatelessWidget {
     this.imagePath,
     this.margin,
     this.onTap,
+    this.color,
   }) : super(
           key: key,
         );
 
   String? imagePath;
+
+  Color? color;
 
   EdgeInsetsGeometry? margin;
 
@@ -32,6 +35,7 @@ class AppbarTrailingIconbuttonOne extends StatelessWidget {
           width: 49.h,
           child: CustomImageView(
             imagePath: ImageConstant.imgScreenshot2023,
+              color: color
           ),
         ),
       ),

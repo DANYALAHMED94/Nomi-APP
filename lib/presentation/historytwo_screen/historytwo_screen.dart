@@ -1,3 +1,4 @@
+import '../../widgets/custom_text_form_field.dart';
 import '../historytwo_screen/widgets/daycomponentgrid_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
@@ -35,16 +36,54 @@ class HistorytwoScreen extends StatelessWidget {
                   padding: EdgeInsets.only(top: 27.v),
                   child: Column(
                     children: [
-                      _buildRecordsRow(context),
+                      _buildRecordsSection(context),
                       SizedBox(height: 12.v),
                       Padding(
                         padding: EdgeInsets.only(
-                          left: 14.h,
-                          right: 13.h,
+                          top: 3.v,
+                          bottom: 2.v,
                         ),
-                        child: CustomSearchView(
+                        child: CustomTextFormField(
                           controller: searchController,
-                          hintText: "Search",
+                          hintText: "Search...",
+                          hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
+                          textInputAction: TextInputAction.done,
+
+                          prefix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgSearch,
+                                height: 15.adaptSize,
+                                width: 15.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          prefixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
+                          ),
+                          suffix: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgMicrophone3421,
+                                height: 20.adaptSize,
+                                width: 20.adaptSize,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          suffixConstraints: BoxConstraints(
+                            maxHeight: 47.v,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                         ),
                       ),
                       SizedBox(height: 17.v),
@@ -61,32 +100,10 @@ class HistorytwoScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: 11.h,
-                  top: 16.v,
-                  bottom: 66.v,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 3.h,
-                  vertical: 1.v,
-                ),
-                decoration: AppDecoration.fillGray,
-                child: Container(
-                  height: 25.v,
-                  width: 8.h,
-                  decoration: BoxDecoration(
-                    color: appTheme.gray40003,
-                    borderRadius: BorderRadius.circular(
-                      4.h,
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        // bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -95,6 +112,7 @@ class HistorytwoScreen extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       centerTitle: true,
+      height: 70,
       title: AppbarTitleImage(
         imagePath: ImageConstant.imgBradgoodLogo,
       ),
@@ -180,7 +198,7 @@ class HistorytwoScreen extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisExtent: 116.v,
+        mainAxisExtent: 126.v,
         crossAxisCount: 3,
         mainAxisSpacing: 6.h,
         crossAxisSpacing: 6.h,
@@ -188,15 +206,78 @@ class HistorytwoScreen extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       itemCount: 6,
       itemBuilder: (context, index) {
-        return DaycomponentgridItemWidget();
+        return DaycomponentgridItemWidget(index: index,);
       },
     );
   }
 
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {},
+  Widget _buildRecordsSection(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.only(
+          left: 10.h,
+          right: 13.h,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Records",
+              style: theme.textTheme.headlineSmall,
+            ),
+            Spacer(),
+            CustomImageView(
+              imagePath: ImageConstant.imgMegaphoneGray90001,
+              height: 19.v,
+              width: 31.h,
+              color: Colors.black,
+              margin: EdgeInsets.symmetric(vertical: 6.v),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12.h),
+              child: SizedBox(
+                height: 29.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 4.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgPhSquaresFourBold,
+              height: 31.adaptSize,
+              width: 31.adaptSize,
+              color: Colors.black,
+              margin: EdgeInsets.only(left: 6.h),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 6.h),
+              child: SizedBox(
+                height: 30.v,
+                child: VerticalDivider(
+                  width: 1.h,
+                  thickness: 1.v,
+                  endIndent: 5.h,
+                ),
+              ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgThumbsUpSecondarycontainer,
+              height: 21.v,
+              width: 28.h,
+              color: Color(0xff55F4BB),
+              margin: EdgeInsets.only(
+                left: 8.h,
+                top: 5.v,
+                bottom: 5.v,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
