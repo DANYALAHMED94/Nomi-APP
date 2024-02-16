@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
+import 'package:nomi/presentation/MainScreenManager/MainScreenManager.dart';
 import 'package:nomi/presentation/forgetpassword_screen/forgetpassword_screen.dart';
 import 'package:nomi/presentation/homescreen_page/homescreen_page.dart';
 import 'package:nomi/widgets/custom_elevated_button.dart';
@@ -206,8 +207,14 @@ class _LoginscreenScreenState extends State<LoginscreenScreen> {
   Widget _buildContinue(BuildContext context) {
     return CustomElevatedButton(
         text: "Continue",
-      onPressed: (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomescreenPage(),));
+      onPressed: () {
+          Navigator
+              .pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MainScreensManager(),
+              )
+          );
       },
     );
   }

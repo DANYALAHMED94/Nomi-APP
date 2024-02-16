@@ -1,7 +1,5 @@
 import 'package:nomi/presentation/chatselection_screen/chatselection_screen.dart';
 import 'package:nomi/presentation/currentgoals_screen/currentgoals_screen.dart';
-import 'package:nomi/presentation/editprofile_screen/editprofile_screen.dart';
-import 'package:nomi/presentation/history_one_screen/history_one_screen.dart';
 import 'package:nomi/presentation/history_screen/history_screen.dart';
 import 'package:nomi/presentation/historythree_screen/historythree_screen.dart';
 import 'package:nomi/presentation/historytwo_screen/historytwo_screen.dart';
@@ -9,8 +7,6 @@ import 'package:nomi/presentation/moodone_screen/moodone_screen.dart';
 import 'package:nomi/presentation/myday_screen/myday_screen.dart';
 import 'package:nomi/presentation/mydayone_screen/mydayone_screen.dart';
 import 'package:nomi/presentation/newgoals_screen/newgoals_screen.dart';
-import 'package:nomi/presentation/quicknote_screen/quicknote_screen.dart';
-import 'package:nomi/presentation/settingscreen_screen/settingscreen_screen.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../homescreen_page/widgets/homescreengrid_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -76,9 +72,7 @@ class HomescreenPage extends StatelessWidget {
                       maxHeight: 47.v,
                     ),
                     suffix: GestureDetector(
-                      onTap: (){
-
-                      },
+                      onTap: (){},
                       child: Container(
                         margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
                         child: CustomImageView(
@@ -95,63 +89,6 @@ class HomescreenPage extends StatelessWidget {
                     contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                   ),
                 ),
-
-                // SizedBox(
-                //   height: 50,
-                //   child: TextField(
-                //     style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-                //     textAlign: TextAlign.center,
-                //     decoration: InputDecoration(
-                //       prefixIcon: IconButton(
-                //           onPressed: (){},
-                //           icon: Icon(Icons.add, size: 25, color: Colors.black,)
-                //       ),
-                //       border: OutlineInputBorder(
-                //         borderSide: BorderSide(
-                //           strokeAlign: 12,
-                //           style: BorderStyle.solid,
-                //           color: Color(0xffA6A7A6),
-                //           width: 0.1
-                //         ),
-                //         borderRadius: BorderRadius.circular(50)
-                //       ),
-                //       suffixIcon: IconButton(
-                //           onPressed: (){},
-                //           icon: Icon(Icons.mic, size: 25, color: Colors.black,)
-                //       ),
-                //       hintText: "Write a quick note..",
-                //       hintStyle: TextStyle(fontWeight: FontWeight.w500)
-                //     ),
-                //   ),
-                // ),
-
-                // CustomOutlinedButton(
-                //   height: 46.v,
-                //   text: "Write a quick note..",
-                //   // margin: EdgeInsets.only(
-                //   //   left: 12.h,
-                //   //   right: 20.h,
-                //   // ),
-                //   rightIcon: Container(
-                //     margin: EdgeInsets.only(left: 30.h),
-                //     child: CustomImageView(
-                //       imagePath: ImageConstant.imgMicrophone3421,
-                //       height: 20.adaptSize,
-                //       width: 20.adaptSize,
-                //     ),
-                //   ),
-                //   leftIcon: Container(
-                //     margin: EdgeInsets.only(right: 30.h),
-                //     child: CustomImageView(
-                //       imagePath: ImageConstant.imgPlus,
-                //       height: 15.v,
-                //       width: 15.h,
-                //       color: Colors.black,
-                //     ),
-                //   ),
-                //   buttonStyle: CustomButtonStyles.outlineGrayTL21,
-                //   buttonTextStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
-                // ),
               ],
             ),
           ),
@@ -208,7 +145,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => QuicknoteScreen(),
+                      builder: (context) => MoodoneScreen(),
                     )
                 );
               }
@@ -217,7 +154,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MoodoneScreen(),
+                      builder: (context) => MydayoneScreen(),
                     )
                 );
               }
@@ -226,7 +163,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CurrentgoalsScreen(),
+                      builder: (context) => ChatselectionScreen(),
                     )
                 );
               }
@@ -235,7 +172,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewgoalsScreen(),
+                      builder: (context) => HistoryScreen(),
                     )
                 );
               }

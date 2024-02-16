@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:nomi/presentation/newpasswordconfirmationscreen_screen/newpasswordconfirmationscreen_screen.dart';
+import 'package:nomi/presentation/MainScreenManager/MainScreenManager.dart';
+// import 'package:nomi/presentation/profilescreen_screen/profilescreen_screen.dart';
 import 'core/app_export.dart';
 
 var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
           theme: theme,
           title: 'Nomi',
           debugShowCheckedModeBanner: false,
+          // home: MainScreensManager(),
+          // home: ProfilescreenScreen(),
           initialRoute: AppRoutes.splashScreen,
           routes: AppRoutes.routes,
         );

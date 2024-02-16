@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 import 'package:nomi/core/app_export.dart';
+import 'package:nomi/presentation/historythree_screen/historythree_screen.dart';
+import 'package:nomi/presentation/historytwo_screen/historytwo_screen.dart';
 import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
 import 'package:nomi/widgets/app_bar/appbar_trailing_iconbutton_one.dart';
 import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
@@ -27,7 +29,9 @@ class HistoryScreen extends StatelessWidget {
         appBar: _buildAppBar(context),
         body: Container(
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: 13.h),
+          padding: EdgeInsets.only(
+            left: 10
+          ),
           child: Column(
             children: [
               SizedBox(height: 16.v),
@@ -180,7 +184,7 @@ class HistoryScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.only(
           left: 10.h,
-          right: 13.h,
+          // right: 13.h,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -194,6 +198,14 @@ class HistoryScreen extends StatelessWidget {
               imagePath: ImageConstant.imgMegaphoneGray90001,
               height: 19.v,
               width: 31.h,
+              onTap: (){
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HistorythreeScreen(),
+                    )
+                );
+              },
               color: Colors.black,
               margin: EdgeInsets.symmetric(vertical: 6.v),
             ),
@@ -213,6 +225,10 @@ class HistoryScreen extends StatelessWidget {
               height: 31.adaptSize,
               width: 31.adaptSize,
               color: Colors.black,
+              onTap: (){
+                Navigator
+                    .pushReplacement(context, MaterialPageRoute(builder: (context) => HistorytwoScreen(),));
+              },
               margin: EdgeInsets.only(left: 6.h),
             ),
             Padding(

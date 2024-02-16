@@ -87,6 +87,11 @@ class ImageConstant {
   static String imgPoutingFace = '$imagePath/img_pouting_face.svg';
 
   static String imgEmoji = '$imagePath/img_emoji.png';
+  static String imgAngry = '$imagePath/angry.png';
+  static String imgDepressed = '$imagePath/depressed.png';
+  static String imgNormal = '$imagePath/normal.png';
+  static String imgHappy = '$imagePath/happy.png';
+  static String imgExtraHappy = '$imagePath/extrahappy.png';
 
   static String imgNeutralFace = '$imagePath/img_neutral_face.png';
 
@@ -170,6 +175,8 @@ class ImageConstant {
   static String imgVector = '$imagePath/img_vector.svg';
 
   static String imgGgProfile = '$imagePath/img_gg_profile.svg';
+
+  static String imgBottom2 = '$imagePath/bottom2.svg';
 
   static String imgRectangle1 = '$imagePath/img_rectangle_1.svg';
 

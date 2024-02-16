@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
+import 'package:nomi/presentation/newgoals_screen/newgoals_screen.dart';
 import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
 import 'package:nomi/widgets/app_bar/appbar_trailing_iconbutton_one.dart';
 import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
@@ -139,70 +140,80 @@ class CurrentgoalsScreen extends StatelessWidget {
 
   /// Section Widget
   Widget _buildCurrentGoals(BuildContext context) {
-    return SizedBox(
-      height: 157.v,
-      width: 358.h,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Align(
-          //   alignment: Alignment.bottomLeft,
-          //   child: Padding(
-          //     padding: EdgeInsets.only(
-          //       left: 27.h,
-          //       bottom: 5.v,
-          //     ),
-          //     child: Text(
-          //       "Quick Note",
-          //       style: CustomTextStyles.headlineSmallOnPrimaryContainer,
-          //     ),
-          //   ),
-          // ),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 11.h,
-                vertical: 3.v,
-              ),
-              decoration: AppDecoration.outlineBlack90001.copyWith(
-                borderRadius: BorderRadiusStyle.roundedBorder12,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 8.v),
-                  _buildContinueVar(
-                    context,
-                    launchNomiText: "Launch Nomi",
-                    createAppAndLaunchText: "Create App and Launch MVP",
-                  ),
-                  // SizedBox(height: 12.v),
-                  Divider(
-                    color: appTheme.gray300,
-                    thickness: 2,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width*0.45,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: (){},
-                            icon: Icon(Icons.alarm_sharp, color: Color(0xff6C757D),
-                            )
-                        ),
-                        Text("Deadline", style: theme.textTheme.bodySmall,),
-                        Text("12 Months", style: theme.textTheme.bodySmall),
-                      ],
+    return GestureDetector(
+      onTap: (){
+        Navigator
+            .push(
+            context,
+            MaterialPageRoute(builder: (context) => NewgoalsScreen(),
+            )
+        );
+      },
+      child: SizedBox(
+        height: 157.v,
+        width: 358.h,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // Align(
+            //   alignment: Alignment.bottomLeft,
+            //   child: Padding(
+            //     padding: EdgeInsets.only(
+            //       left: 27.h,
+            //       bottom: 5.v,
+            //     ),
+            //     child: Text(
+            //       "Quick Note",
+            //       style: CustomTextStyles.headlineSmallOnPrimaryContainer,
+            //     ),
+            //   ),
+            // ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 11.h,
+                  vertical: 3.v,
+                ),
+                decoration: AppDecoration.outlineBlack90001.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder12,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 8.v),
+                    _buildContinueVar(
+                      context,
+                      launchNomiText: "Launch Nomi",
+                      createAppAndLaunchText: "Create App and Launch MVP",
                     ),
-                  ),
-                ],
+                    // SizedBox(height: 12.v),
+                    Divider(
+                      color: appTheme.gray300,
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width*0.45,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                              onPressed: (){},
+                              icon: Icon(Icons.alarm_sharp, color: Color(0xff6C757D),
+                              )
+                          ),
+                          Text("Deadline", style: theme.textTheme.bodySmall,),
+                          Text("12 Months", style: theme.textTheme.bodySmall),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

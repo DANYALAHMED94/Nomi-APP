@@ -1,12 +1,13 @@
+import 'package:nomi/presentation/historythree_screen/historythree_screen.dart';
+
 import '../../widgets/custom_text_form_field.dart';
+import '../history_screen/history_screen.dart';
 import '../historytwo_screen/widgets/daycomponentgrid_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
 import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
 import 'package:nomi/widgets/app_bar/appbar_trailing_iconbutton_one.dart';
 import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
-import 'package:nomi/widgets/custom_bottom_bar.dart';
-import 'package:nomi/widgets/custom_search_view.dart';
 
 class HistorytwoScreen extends StatelessWidget {
   HistorytwoScreen({Key? key})
@@ -88,14 +89,6 @@ class HistorytwoScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 17.v),
                       _buildDayComponentGrid(context),
-                      Spacer(),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgPlusGreenA200,
-                        height: 80.v,
-                        width: 75.h,
-                        alignment: Alignment.centerRight,
-                        margin: EdgeInsets.only(right: 135.h),
-                      ),
                     ],
                   ),
                 ),
@@ -232,6 +225,14 @@ class HistorytwoScreen extends StatelessWidget {
               imagePath: ImageConstant.imgMegaphoneGray90001,
               height: 19.v,
               width: 31.h,
+              onTap: (){
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HistorythreeScreen(),
+                    )
+                );
+              },
               color: Colors.black,
               margin: EdgeInsets.symmetric(vertical: 6.v),
             ),
@@ -250,7 +251,7 @@ class HistorytwoScreen extends StatelessWidget {
               imagePath: ImageConstant.imgPhSquaresFourBold,
               height: 31.adaptSize,
               width: 31.adaptSize,
-              color: Colors.black,
+              color: Color(0xff55F4BB),
               margin: EdgeInsets.only(left: 6.h),
             ),
             Padding(
@@ -268,7 +269,16 @@ class HistorytwoScreen extends StatelessWidget {
               imagePath: ImageConstant.imgThumbsUpSecondarycontainer,
               height: 21.v,
               width: 28.h,
-              color: Color(0xff55F4BB),
+              color: Colors.black,
+              onTap: (){
+                Navigator
+                    .pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HistoryScreen(),
+                    )
+                );
+              },
               margin: EdgeInsets.only(
                 left: 8.h,
                 top: 5.v,

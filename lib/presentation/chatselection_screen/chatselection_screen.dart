@@ -1,3 +1,4 @@
+import 'package:nomi/presentation/currentgoals_screen/currentgoals_screen.dart';
 import 'package:nomi/presentation/homescreenthree_screen/homescreenthree_screen.dart';
 
 import '../chatselection_screen/widgets/mydaytodaycomponentgrid_item_widget.dart';
@@ -83,10 +84,11 @@ class ChatselectionScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: (){
-                Navigator.push(
+                Navigator
+                    .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomescreenthreeScreen(),
+                      builder: (context) => CurrentgoalsScreen(),
                     )
                 );
               },

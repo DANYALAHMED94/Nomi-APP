@@ -1,4 +1,3 @@
-import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
 import 'package:nomi/widgets/app_bar/appbar_leading_iconbutton_one.dart';
@@ -535,63 +534,6 @@ class HomescreenthreeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildMdi(BuildContext context) {
-    return SizedBox(
-      height: 105.v,
-      width: double.maxFinite,
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgRectangle1,
-            height: 77.v,
-            width: 428.h,
-            alignment: Alignment.bottomCenter,
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: EdgeInsets.only(
-                right: 15.h,
-                bottom: 18.v,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    height: 40.v,
-                    width: 41.h,
-                    margin: EdgeInsets.only(top: 6.v),
-                    child: CalendarDatePicker2(
-                      config: CalendarDatePicker2Config(
-                        calendarType: CalendarDatePicker2Type.single,
-                        firstDate: DateTime(DateTime.now().year - 5),
-                        lastDate: DateTime(DateTime.now().year + 5),
-                        firstDayOfWeek: 0,
-                      ),
-                      value: selectedDatesFromCalendar1,
-                      onValueChanged: (dates) {},
-                    ),
-                  ),
-                  CustomImageView(
-                    imagePath: ImageConstant.imgGgProfile,
-                    height: 45.adaptSize,
-                    width: 45.adaptSize,
-                    margin: EdgeInsets.only(left: 37.h),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          _buildHome(context),
-        ],
       ),
     );
   }

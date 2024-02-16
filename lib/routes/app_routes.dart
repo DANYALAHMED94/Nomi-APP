@@ -104,7 +104,7 @@ class AppRoutes {
     historyScreen: (context) => HistoryScreen(),
     calendarScreen: (context) => CalendarScreen(),
     moodoneScreen: (context) => MoodoneScreen(),
-    moodtwoScreen: (context) => MoodtwoScreen(),
+    moodtwoScreen: (context) => MoodtwoScreen(imagePath: ""),
     mydayoneScreen: (context) => MydayoneScreen(),
     mydayScreen: (context) => MydayScreen(),
     historyOneScreen: (context) => HistoryOneScreen(),
