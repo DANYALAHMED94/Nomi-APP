@@ -1,3 +1,4 @@
+import 'package:nomi/presentation/RewardScreen/RewardScreen.dart';
 import 'package:nomi/presentation/chatselection_screen/chatselection_screen.dart';
 import 'package:nomi/presentation/currentgoals_screen/currentgoals_screen.dart';
 import 'package:nomi/presentation/history_screen/history_screen.dart';
@@ -7,6 +8,7 @@ import 'package:nomi/presentation/moodone_screen/moodone_screen.dart';
 import 'package:nomi/presentation/myday_screen/myday_screen.dart';
 import 'package:nomi/presentation/mydayone_screen/mydayone_screen.dart';
 import 'package:nomi/presentation/newgoals_screen/newgoals_screen.dart';
+import 'package:nomi/presentation/quicknote_screen/quicknote_screen.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../homescreen_page/widgets/homescreengrid_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -47,46 +49,52 @@ class HomescreenPage extends StatelessWidget {
                     top: 3.v,
                     bottom: 2.v,
                   ),
-                  child: CustomTextFormField(
-                    controller: quickNotes,
-                    textAlignment: TextAlign.center,
-                    hintText: "Write a quick note..",
-                    hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
-                    textInputAction: TextInputAction.done,
-
-                    prefix: GestureDetector(
-                      onTap: (){
-
-                      },
-                      child: Container(
-                        margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgPlus,
-                          height: 12.adaptSize,
-                          width: 12.adaptSize,
-                          color: Colors.black,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => QuicknoteScreen(),));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey.shade400,
+                          width: 1
                         ),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                    ),
-                    prefixConstraints: BoxConstraints(
-                      maxHeight: 47.v,
-                    ),
-                    suffix: GestureDetector(
-                      onTap: (){},
-                      child: Container(
-                        margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgMicrophone3421,
-                          height: 20.adaptSize,
-                          width: 20.adaptSize,
-                          color: Colors.black,
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgPlus,
+                              height: 12.adaptSize,
+                              width: 12.adaptSize,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            "Write a quick note..",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey.shade400
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgMicrophone3421,
+                              height: 20.adaptSize,
+                              width: 20.adaptSize,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
+
                     ),
-                    suffixConstraints: BoxConstraints(
-                      maxHeight: 47.v,
-                    ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 13.v),
                   ),
                 ),
               ],
@@ -116,6 +124,9 @@ class HomescreenPage extends StatelessWidget {
       ),
       actions: [
         AppbarTrailingImage(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => RewardScreen(),));
+          },
           imagePath: ImageConstant.imgWpfCoins,
           colors: Color(0xffFFD700),
         ),
@@ -154,7 +165,7 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MydayoneScreen(),
+                      builder: (context) => MydayScreen(),
                     )
                 );
               }
@@ -172,7 +183,20 @@ class HomescreenPage extends StatelessWidget {
                     .push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HistoryScreen(),
+                      builder: (context) => Container(
+                        color: Colors.black,
+                        child: Center(
+                          child: Text(
+                            "Coming Soon",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              inherit: false
+                            ),
+                          ),
+                        ),
+                      ),
                     )
                 );
               }

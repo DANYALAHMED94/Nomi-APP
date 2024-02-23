@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
+import 'package:nomi/presentation/transscriptscreen_screen/transscriptscreen_screen.dart';
 import 'package:nomi/widgets/app_bar/appbar_leading_iconbutton_two.dart';
 import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
 import 'package:nomi/widgets/app_bar/appbar_trailing_iconbutton_two.dart';
@@ -47,11 +48,16 @@ class QuicknoteScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgVectorGreenA200,
-                      height: 101.v,
-                      width: 72.h,
-                      color: Color(0xff49EEB3),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => TransscriptscreenScreen(),));
+                      },
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgVectorGreenA200,
+                        height: 101.v,
+                        width: 72.h,
+                        color: Color(0xff49EEB3),
+                      ),
                     ),
                     SizedBox(height: 14.v),
                     Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nomi/core/app_export.dart';
 import 'package:nomi/presentation/moodtwo_screen/moodtwo_screen.dart';
 import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
@@ -68,11 +69,11 @@ class _MoodoneScreenState extends State<MoodoneScreen> {
                               itemBuilder: (context, index) {
                                 return CircleAvatar(
                                   backgroundColor: index==sliderValue~/25?Colors.amber:Colors.white,
-                                  radius: 25,
+                                  radius: 30,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: CircleAvatar(
-                                      radius: 22,
+                                      radius: 25,
                                       backgroundImage: AssetImage(
                                           emojiList[index].toString()
                                       ),

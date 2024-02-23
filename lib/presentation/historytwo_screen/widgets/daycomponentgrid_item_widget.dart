@@ -40,14 +40,15 @@ class DaycomponentgridItemWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 2.v),
+                  // SizedBox(height: 2.v),
                   Text(
                     "Day 1",
                     style: CustomTextStyles.titleSmallOnPrimaryContainer,
                   ),
-                  SizedBox(height: 67.v),
+                  SizedBox(height: 50.v),
                   Text(
                     "Jan 1, 2024 ",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,

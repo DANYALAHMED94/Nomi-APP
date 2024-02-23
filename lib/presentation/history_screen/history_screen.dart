@@ -24,13 +24,12 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: _buildAppBar(context),
-        body: Container(
+      child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Container(
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.only(
-            left: 10
+              left: 10
           ),
           child: Column(
             children: [
@@ -43,90 +42,32 @@ class HistoryScreen extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: 1.h,
-                          top: 11.v,
-                          right: 25.h,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildRecordsSection(context),
-                            SizedBox(height: 12.v),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                top: 3.v,
-                                bottom: 2.v,
-                              ),
-                              child: CustomTextFormField(
-                                controller: searchController,
-                                hintText: "Search...",
-                                hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
-                                textInputAction: TextInputAction.done,
-
-                                prefix: GestureDetector(
-                                  onTap: (){
-
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
-                                    child: CustomImageView(
-                                      imagePath: ImageConstant.imgSearch,
-                                      height: 15.adaptSize,
-                                      width: 15.adaptSize,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                prefixConstraints: BoxConstraints(
-                                  maxHeight: 47.v,
-                                ),
-                                suffix: GestureDetector(
-                                  onTap: (){
-
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
-                                    child: CustomImageView(
-                                      imagePath: ImageConstant.imgMicrophone3421,
-                                      height: 20.adaptSize,
-                                      width: 20.adaptSize,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                suffixConstraints: BoxConstraints(
-                                  maxHeight: 47.v,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(vertical: 13.v),
-                              ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _buildUserProfile(context),
+                          SizedBox(height: 14.v),
+                          Padding(
+                            padding: EdgeInsets.only(left: 9.h),
+                            child: Text(
+                              "Quick Notes",
+                              style: CustomTextStyles.titleMediumGreenA200,
                             ),
-                            SizedBox(height: 17.v),
-                            _buildUserProfile(context),
-                            SizedBox(height: 14.v),
-                            Padding(
-                              padding: EdgeInsets.only(left: 9.h),
-                              child: Text(
-                                "Quick Notes",
-                                style: CustomTextStyles.titleMediumGreenA200,
-                              ),
+                          ),
+                          SizedBox(height: 2.v),
+                          _buildFrame(context),
+                          SizedBox(height: 21.v),
+                          Padding(
+                            padding: EdgeInsets.only(left: 11.h),
+                            child: Text(
+                              "My Day",
+                              style: CustomTextStyles.titleMediumGreenA200,
                             ),
-                            SizedBox(height: 2.v),
-                            _buildFrame(context),
-                            SizedBox(height: 21.v),
-                            Padding(
-                              padding: EdgeInsets.only(left: 11.h),
-                              child: Text(
-                                "My Day",
-                                style: CustomTextStyles.titleMediumGreenA200,
-                              ),
-                            ),
-                            SizedBox(height: 2.v),
-                            _buildClientTestimonials(context)
-                          ],
-                        ),
+                          ),
+                          SizedBox(height: 2.v),
+                          _buildClientTestimonials(context)
+                        ],
                       ),
                     ),
                   ],
@@ -135,8 +76,7 @@ class HistoryScreen extends StatelessWidget {
             ],
           ),
         ),
-        // bottomNavigationBar: _buildBottomBar(context),
-      ),
+      )
     );
   }
 

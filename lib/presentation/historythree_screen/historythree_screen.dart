@@ -23,8 +23,6 @@ class HistorythreeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: _buildAppBar(context),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(horizontal: 13.h),
@@ -34,166 +32,32 @@ class HistorythreeScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 24.h,
-                    top: 25.v,
-                  ),
-                  child: Column(
-                    children: [
-
-                      _buildRecordsSection(context),
-                      SizedBox(height: 12.v),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: 3.v,
-                          bottom: 2.v,
-                        ),
-                        child: CustomTextFormField(
-                          controller: searchController,
-                          hintText: "Search...",
-                          hintStyle: CustomTextStyles.bodyMediumPoppinsGray50002,
-                          textInputAction: TextInputAction.done,
-
-                          prefix: GestureDetector(
-                            onTap: (){
-
-                            },
-                            child: Container(
-                              margin: EdgeInsets.fromLTRB(16.h, 17.v, 30.h, 17.v),
-                              child: CustomImageView(
-                                imagePath: ImageConstant.imgSearch,
-                                height: 15.adaptSize,
-                                width: 15.adaptSize,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          prefixConstraints: BoxConstraints(
-                            maxHeight: 47.v,
-                          ),
-                          suffix: GestureDetector(
-                            onTap: (){
-
-                            },
-                            child: Container(
-                              margin: EdgeInsets.fromLTRB(30.h, 13.v, 14.h, 13.v),
-                              child: CustomImageView(
-                                imagePath: ImageConstant.imgMicrophone3421,
-                                height: 20.adaptSize,
-                                width: 20.adaptSize,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          suffixConstraints: BoxConstraints(
-                            maxHeight: 47.v,
-                          ),
-                          contentPadding: EdgeInsets.symmetric(vertical: 13.v),
+                child: Column(
+                  children: [
+                    SizedBox(height: 2.v),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 16.h),
+                        child: Text(
+                          "2024",
+                          style: CustomTextStyles.titleSmallGreenA200,
                         ),
                       ),
-
-                      // Container(
-                      //   width: 332.h,
-                      //   margin: EdgeInsets.only(
-                      //     left: 10.h,
-                      //     right: 4.h,
-                      //   ),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.center,
-                      //     children: [
-                      //       Padding(
-                      //         padding: EdgeInsets.only(bottom: 2.v),
-                      //         child: Text(
-                      //           "Records",
-                      //           style: theme.textTheme.headlineSmall,
-                      //         ),
-                      //       ),
-                      //       Spacer(),
-                      //       CustomImageView(
-                      //         imagePath: ImageConstant.imgMegaphone,
-                      //         height: 19.v,
-                      //         width: 31.h,
-                      //         margin: EdgeInsets.only(
-                      //           top: 7.v,
-                      //           bottom: 6.v,
-                      //         ),
-                      //       ),
-                      //       Padding(
-                      //         padding: EdgeInsets.only(left: 12.h),
-                      //         child: SizedBox(
-                      //           height: 32.v,
-                      //           child: VerticalDivider(
-                      //             width: 1.h,
-                      //             thickness: 1.v,
-                      //             indent: 3.h,
-                      //             endIndent: 4.h,
-                      //           ),
-                      //         ),
-                      //       ),
-                      //       CustomImageView(
-                      //         imagePath: ImageConstant.imgPhSquaresFourBold,
-                      //         height: 31.adaptSize,
-                      //         width: 31.adaptSize,
-                      //         margin: EdgeInsets.only(left: 6.h),
-                      //       ),
-                      //       Padding(
-                      //         padding: EdgeInsets.only(left: 6.h),
-                      //         child: SizedBox(
-                      //           height: 32.v,
-                      //           child: VerticalDivider(
-                      //             width: 1.h,
-                      //             thickness: 1.v,
-                      //             indent: 2.h,
-                      //             endIndent: 5.h,
-                      //           ),
-                      //         ),
-                      //       ),
-                      //       CustomImageView(
-                      //         imagePath: ImageConstant.imgVectorBlack90001,
-                      //         height: 21.v,
-                      //         width: 28.h,
-                      //         margin: EdgeInsets.only(
-                      //           left: 8.h,
-                      //           top: 6.v,
-                      //           bottom: 5.v,
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                      // Padding(
-                      //   padding: EdgeInsets.only(right: 4.h),
-                      //   child: CustomSearchView(
-                      //     controller: searchController,
-                      //     hintText: "Search",
-                      //   ),
-                      // ),
-                      SizedBox(height: 2.v),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 16.h),
-                          child: Text(
-                            "2024",
-                            style: CustomTextStyles.titleSmallGreenA200,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 7.v),
-                      Divider(
-                        endIndent: 4.h,
-                        thickness: 1,
-                      ),
-                      SizedBox(height: 15.v),
-                      _buildJanDayOne(context),
-                      SizedBox(height: 18.v),
-                      Divider(
-                        endIndent: 4.h,
-                        thickness: 1,
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 7.v),
+                    Divider(
+                      endIndent: 4.h,
+                      thickness: 1,
+                    ),
+                    SizedBox(height: 15.v),
+                    _buildJanDayOne(context),
+                    SizedBox(height: 18.v),
+                    Divider(
+                      endIndent: 4.h,
+                      thickness: 1,
+                    ),
+                  ],
                 ),
               ),
 

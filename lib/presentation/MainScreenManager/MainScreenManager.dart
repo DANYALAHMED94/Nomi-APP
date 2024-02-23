@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nomi/core/app_export.dart';
+import 'package:nomi/presentation/HistoryMainScreen/HistoryMainScreen.dart';
 import 'package:nomi/presentation/calendar_screen/calendar_screen.dart';
+import 'package:nomi/presentation/history_screen/history_screen.dart';
 import 'package:nomi/presentation/homescreen_page/homescreen_page.dart';
 import 'package:nomi/presentation/homescreenthree_screen/homescreenthree_screen.dart';
 import 'package:nomi/presentation/profilescreen_screen/profilescreen_screen.dart';
@@ -16,8 +18,8 @@ class MainScreensManager extends StatefulWidget {
 class _MainScreensManagerState extends State<MainScreensManager> {
 
   List<Widget> screensList = [
-    HomescreenPage(),
     HomescreenthreeScreen(),
+    HistoryMainScreen(),
     CalendarScreen(),
     ProfilescreenScreen(),
   ];
@@ -37,7 +39,12 @@ class _MainScreensManagerState extends State<MainScreensManager> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => MainScreensManager(),
+          )
+          );
+        },
         backgroundColor: Color(0xff49EEB3),
         child: Icon(Icons.add, color: Colors.white, size: 35,),
         shape: ContinuousRectangleBorder(
@@ -59,7 +66,7 @@ class _MainScreensManagerState extends State<MainScreensManager> {
                       minWidth: 40,
                       onPressed: (){
                         setState(() {
-                          currentScreen = HomescreenPage();
+                          currentScreen = HomescreenthreeScreen();
                           currentTab = 0;
                         });
                       },
@@ -74,12 +81,11 @@ class _MainScreensManagerState extends State<MainScreensManager> {
                     minWidth: 40,
                     onPressed: (){
                       setState(() {
-                        currentScreen = HomescreenthreeScreen();
+                        currentScreen = HistoryMainScreen();
                         currentTab = 1;
                       });
                     },
                     child: CustomImageView(
-                      // imagePath: ImageConstant.imgOcticonGift16,
                       imagePath: ImageConstant.imgBottom2,
                       height: 50.v,
                       width: 40.h,

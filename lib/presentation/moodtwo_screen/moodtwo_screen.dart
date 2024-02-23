@@ -163,7 +163,9 @@ class MoodtwoScreen extends StatelessWidget {
                 width: 80,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(imagePath),
+                      image: AssetImage(
+                        imagePath
+                      ),
                     fit: BoxFit.fill
                   )
                 ),
