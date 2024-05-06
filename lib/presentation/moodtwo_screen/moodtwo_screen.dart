@@ -4,7 +4,6 @@ import 'package:nomi/widgets/app_bar/appbar_title_image.dart';
 import 'package:nomi/widgets/app_bar/appbar_trailing_iconbutton_one.dart';
 import 'package:nomi/widgets/app_bar/custom_app_bar.dart';
 import 'package:nomi/widgets/custom_elevated_button.dart';
-
 import '../../widgets/custom_text_form_field.dart';
 
 class MoodtwoScreen extends StatelessWidget {
